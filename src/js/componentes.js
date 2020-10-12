@@ -28,7 +28,11 @@ const cotizarSeguro = event => {
         return;
     }
 
-    ui.showMessage( 'Cotizando...' ); 
+    ui.showMessage( 'Cotizando...' );
+
+    // Realizar cotización
+    const seguro = new Seguro( brand, year, type );
+    const total = seguro.cotizarSeguro();
 }
 
 
