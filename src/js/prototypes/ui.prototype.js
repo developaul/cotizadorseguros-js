@@ -1,4 +1,4 @@
-import { selectYear } from '../componentes.js';
+import { selectYear, form } from '../componentes.js';
 
 export function UI() {}
 
@@ -14,4 +14,18 @@ UI.prototype.fillOptions = () => {
 
         selectYear.appendChild( option );
     }
+}
+
+// Muestra un mensaje de acuerdo al tipo
+UI.prototype.showMessage = ( message, type ) => {
+    const divMessage = document.createElement( 'div' );
+    divMessage.textContent = message;
+    divMessage.classList.add( 'mensaje', 'mt-10' );
+    divMessage.classList.add( ( type === 'error' ) ? 'error' : 'correcto' );
+
+    form.insertBefore( divMessage, form.querySelector( '#resultado' ) );
+
+    setTimeout( () => {
+        divMessage.remove();
+    }, 3000 );
 }
