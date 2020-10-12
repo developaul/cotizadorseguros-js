@@ -7,8 +7,7 @@ import '../css/tailwind.css';
 export const selectYear = document.querySelector( '#year' ),
              form       = document.querySelector( '#cotizar-seguro' );
 
-
-// Creando instancias
+// Instancias
 const ui = new UI();
 
 
@@ -28,12 +27,20 @@ const cotizarSeguro = event => {
         return;
     }
 
-    ui.showMessage( 'Cotizando...' );
+    ui.showMessage( 'Cotizando...', 'correcto' );
 
     // Realizar cotización
     const seguro = new Seguro( brand, year, type );
     const total = seguro.cotizarSeguro();
+
+    // Mostrar la cotización en pantalla
+    ui.showResult( seguro, total );
+
+    // Eliminando la última cotización en pantalla
+    const results = document.querySelector( '#resultado div' ); 
+    if( results ) { results.remove(); }
 }
+
 
 
 // Events

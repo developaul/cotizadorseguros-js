@@ -9,7 +9,7 @@ Seguro.prototype.cotizarSeguro = function(){
     const base = 2000;
 
     for( let i = 0; i < brands.length; i++ ) {
-        if( this.brand === i ) { cantidad = base * brands[i]; }
+        if( this.brand === i ) { cantidad = base * brands[i]; break; }
     }
 
     // Cada año que la diferencia es mayor el costo se va a reducir un 3%
